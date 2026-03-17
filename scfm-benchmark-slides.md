@@ -7,26 +7,34 @@ color: #1a1a2e
 style: |
   section {
     font-family: 'Segoe UI', Arial, sans-serif;
-    padding: 50px 60px;
+    padding: 42px 52px;
+    font-size: 29px;
+    line-height: 1.28;
   }
   h1 {
     color: #16213e;
-    font-size: 1.8em;
+    font-size: 1.55em;
     border-bottom: 3px solid #0f3460;
-    padding-bottom: 12px;
+    padding-bottom: 10px;
+    margin-bottom: 0.45em;
   }
   h2 {
     color: #0f3460;
-    font-size: 1.3em;
+    font-size: 1.18em;
+    margin-bottom: 0.25em;
+  }
+  p, li, blockquote, td, th {
+    overflow-wrap: anywhere;
+    word-break: normal;
   }
   strong { color: #e94560; }
   table {
-    font-size: 0.78em;
+    font-size: 0.72em;
     width: 100%;
   }
-  th { background: #0f3460; color: white; padding: 6px 10px; }
-  td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
-  ul { line-height: 1.8; }
+  th { background: #0f3460; color: white; padding: 5px 8px; }
+  td { padding: 4px 8px; border-bottom: 1px solid #ddd; }
+  ul { line-height: 1.5; margin-top: 0.2em; }
   .tag {
     background: #0f3460;
     color: white;
@@ -43,7 +51,8 @@ style: |
 
 <br>
 
-**Genome Biology** · October 2025
+**Genome Biology** · October 2025  
+🔗 Paper: https://doi.org/10.1186/s13059-025-03781-6
 
 > *Les scFMs apprennent-ils vraiment de la biologie — ou juste de la statistique ?*
 
@@ -129,4 +138,5 @@ Ce travail valide directement l'approche de scPRINT : concevoir des modèles don
 
 <br>
 
-📄 *Genome Biology 26:334 · DOI: 10.1186/s13059-025-03781-6*
+📄 *Genome Biology 26:334 · DOI: 10.1186/s13059-025-03781-6*  
+🔗 https://doi.org/10.1186/s13059-025-03781-6
