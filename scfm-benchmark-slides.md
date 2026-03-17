@@ -7,33 +7,26 @@ color: #1a1a2e
 style: |
   section {
     font-family: 'Segoe UI', Arial, sans-serif;
-    padding: 48px 58px;
+    padding: 50px 60px;
   }
   h1 {
     color: #16213e;
-    font-size: 1.75em;
+    font-size: 1.8em;
     border-bottom: 3px solid #0f3460;
     padding-bottom: 12px;
   }
   h2 {
     color: #0f3460;
-    font-size: 1.28em;
+    font-size: 1.3em;
   }
   strong { color: #e94560; }
   table {
-    font-size: 0.76em;
+    font-size: 0.78em;
     width: 100%;
   }
   th { background: #0f3460; color: white; padding: 6px 10px; }
   td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
-  ul { line-height: 1.7; }
-  section.compact {
-    font-size: 0.9em;
-    line-height: 1.25;
-    padding: 42px 52px;
-  }
-  section.compact table { font-size: 0.7em; }
-  section.compact ul { line-height: 1.45; }
+  ul { line-height: 1.8; }
   .tag {
     background: #0f3460;
     color: white;
@@ -50,8 +43,7 @@ style: |
 
 <br>
 
-**Genome Biology** · October 2025  
-🔗 Paper: https://doi.org/10.1186/s13059-025-03781-6
+**Genome Biology** · October 2025
 
 > *Les scFMs apprennent-ils vraiment de la biologie — ou juste de la statistique ?*
 
@@ -80,7 +72,6 @@ Ils mesurent la performance brute — pas si le modèle *comprend* la biologie c
 **→ Ce papier propose de changer les règles du jeu.**
 
 ---
-<!-- _class: compact -->
 
 # Nouvelles métriques bio-informées
 
@@ -100,7 +91,6 @@ Deux métriques originales basées sur l'**ontologie cellulaire** (Cell Ontology
 - 🎯 **Cancer cell ID + Drug sensitivity prediction** (clinique)
 
 ---
-<!-- _class: compact -->
 
 # Résultats : Les scFMs valent bien plus que prévu
 
@@ -120,7 +110,6 @@ Sur les métriques bio-informées → **scFMs dominent largement** :
 **Insight clé :** Un espace latent plus *lisse* (smooth landscape) = meilleures performances downstream → argument fort pour les architectures type scPRINT.
 
 ---
-<!-- _class: compact -->
 
 # Conclusion & Ce que ça change
 
@@ -140,5 +129,4 @@ Ce travail valide directement l'approche de scPRINT : concevoir des modèles don
 
 <br>
 
-📄 *Genome Biology 26:334 · DOI: 10.1186/s13059-025-03781-6*  
-🔗 https://doi.org/10.1186/s13059-025-03781-6
+📄 *Genome Biology 26:334 · DOI: 10.1186/s13059-025-03781-6*
