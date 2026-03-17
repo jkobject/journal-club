@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology-driven insights into the power of scFMs</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/night.css">
+  <style>
+    :root { --r-main-font-size: 26px; }
+    .reveal h1 { font-size: 1.5em; color: #64b5f6; }
+    .reveal h2 { font-size: 1.15em; color: #90caf9; border-bottom: 2px solid #0f3460; padding-bottom: 6px; }
+    .reveal h3 { font-size: 0.95em; color: #e94560; }
+    .reveal table { font-size: 0.68em; width: 100%; margin: 0.4em 0; }
+    .reveal table th { background: #1565c0; padding: 5px 8px; }
+    .reveal table td { padding: 4px 8px; border-bottom: 1px solid #333; }
+    .reveal ul { line-height: 1.7; }
+    .highlight { color: #e94560; font-weight: bold; }
+    .tag { background: #1565c0; padding: 2px 8px; border-radius: 10px; font-size: 0.7em; }
+    .reveal blockquote { background: #1a237e22; border-left: 4px solid #90caf9; padding: 8px 16px; font-style: italic; font-size: 0.82em; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; align-items: start; }
+    .fig-caption { font-size: 0.52em; color: #888; text-align: center; margin-top: 4px; }
+    .reveal img { max-height: 55vh; object-fit: contain; border-radius: 4px; }
+    .reveal section { padding: 20px 40px; }
+    .authors { font-size: 0.65em; color: #aaa; margin-top: 0.3em; }
+  </style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- SLIDE 1 : TITLE -->
+<section data-background-gradient="linear-gradient(135deg, #0d1b2a, #16213e)">
+  <h1>Biology-driven insights into the power of single-cell foundation models</h1>
+  <p class="authors">Genome Biology · October 2025 · DOI: 10.1186/s13059-025-03781-6</p>
+  <br>
+  <p style="font-size:0.85em; color:#ccc; font-style:italic;">
+    Do single-cell foundation models genuinely capture biological structure,<br>or merely statistical co-occurrence patterns?
+  </p>
+  <br>
+  <p style="font-size:0.65em; color:#666;">
+    🧬 Benchmarking &nbsp;·&nbsp; Foundation Models &nbsp;·&nbsp; Single-Cell Genomics &nbsp;·&nbsp; Computational Biology
+  </p>
+</section>
+
+<!-- SLIDE 2 : BACKGROUND + Fig 1 -->
+<section>
+  <h2>Background & Benchmark Design</h2>
+  <div class="two-col">
+    <div>
+      <p style="font-size:0.82em">Single-cell foundation models (<strong>scGPT, Geneformer, UCE, scCello, LangCell, scFoundation</strong>) have generated considerable enthusiasm, yet prior benchmarking studies consistently concluded:</p>
+      <blockquote>"Simple baselines (HVG, scVI) perform comparably — what is the added value?"</blockquote>
+      <p style="font-size:0.78em"><strong>Core issue:</strong> standard metrics (scIB) evaluate task performance without assessing whether models capture biologically meaningful relational structure.</p>
+      <h3>Evaluation scope</h3>
+      <ul style="font-size:0.75em">
+        <li>6 scFMs × 5 curated datasets</li>
+        <li>Batch integration &amp; cell type annotation</li>
+        <li>🎯 Cancer cell identification</li>
+        <li>🎯 Drug sensitivity prediction</li>
+      </ul>
+    </div>
+    <div style="text-align:center">
+      <img src="figures/fig-004-005.png" alt="Figure 1 - Benchmark overview">
+      <p class="fig-caption">Fig. 1 — Overview of the benchmarking framework: model architectures, downstream tasks, and evaluation metrics (classical + ontology-informed)</p>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 3 : METRICS + Fig 2 -->
+<section>
+  <h2>Biology-Informed Evaluation Metrics</h2>
+  <div class="two-col">
+    <div>
+      <table>
+        <thead><tr><th>Metric</th><th>What it measures</th></tr></thead>
+        <tbody>
+          <tr><td><strong>scGraph-OntoRWR</strong></td><td>Consistency between cell-type relational structure in the latent space and the Cell Ontology graph</td></tr>
+          <tr><td><strong>LCAD</strong> <em>(Lowest Common Ancestor Distance)</em></td><td>Semantic severity of annotation errors — conflating ontologically proximal types is penalized less than conflating distant ones</td></tr>
+        </tbody>
+      </table>
+      <br>
+      <p style="font-size:0.78em"><span class="highlight">Key finding:</span> scCello and UCE substantially outperform scVI on ontology-informed metrics, even where scIB scores were comparable.</p>
+      <p style="font-size:0.75em">scCello achieves a <span class="highlight">+38.8%</span> improvement over scVI in Pearson correlation with the Cell Ontology (PPC).</p>
+    </div>
+    <div style="text-align:center">
+      <img src="figures/fig-009-006.png" alt="Figure 2 - Batch integration">
+      <p class="fig-caption">Fig. 2 — Batch integration: classical scIB metrics vs. ontology-informed metrics (scGraph-OntoRWR), with UMAP visualizations colored by ontological proximity</p>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 4 : ANNOTATION + Fig 3 -->
+<section>
+  <h2>Cell Type Annotation</h2>
+  <div class="two-col">
+    <div style="text-align:center">
+      <img src="figures/fig-013-007.png" alt="Figure 3 - Cell type annotation">
+      <p class="fig-caption">Fig. 3 — Cell type annotation: cross-dataset transfer (Accuracy, Macro F1, LCAD) and robustness to unseen cell types</p>
+    </div>
+    <div>
+      <ul style="font-size:0.78em">
+        <li><strong>scCello</strong> leads across metrics, consistent with its ontology-informed pretraining objective</li>
+        <li>LCAD reveals that scFM misclassifications are <em>biologically less severe</em> than those of baseline models</li>
+        <li><strong>UCE</strong> demonstrates superior robustness to out-of-distribution cell populations</li>
+        <li>Fine-tuning on scFM embeddings consistently outperforms baseline fine-tuning</li>
+      </ul>
+      <br>
+      <blockquote style="font-size:0.72em">Unlike scVI, scFMs allow dataset-specific embedding extraction without gene filtering, preserving biologically informative signal across heterogeneous datasets.</blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 5 : CLINICAL TASKS + Figs 4&5 -->
+<section>
+  <h2>Clinically Relevant Tasks</h2>
+  <div class="two-col">
+    <div style="text-align:center">
+      <img src="figures/fig-017-008.png" alt="Figure 4 - Cancer cell identification">
+      <p class="fig-caption">Fig. 4 — Cancer cell identification: AUROC/AUPRC stratified by tissue type and batch key</p>
+    </div>
+    <div style="text-align:center">
+      <img src="figures/fig-019-009.png" alt="Figure 5 - Drug sensitivity prediction">
+      <p class="fig-caption">Fig. 5 — Drug sensitivity prediction: aggregated AUROC/AUPRC across four drugs and drug-specific ROGI scores</p>
+    </div>
+  </div>
+  <p style="font-size:0.75em; margin-top:0.6em">
+    💡 <strong>Critical observation:</strong> ROGI (ontological coherence of embeddings) is a strong predictor of downstream performance —
+    correlation with AUROC reaches <span class="highlight">r = −0.99</span> in drug sensitivity prediction.
+    Geometrically well-structured latent spaces directly translate into superior clinical task performance.
+  </p>
+</section>
+
+<!-- SLIDE 6 : CONCLUSION -->
+<section data-background-gradient="linear-gradient(135deg, #0d1b2a, #1a237e)">
+  <h2>Conclusions & Implications</h2>
+  <div class="two-col">
+    <div>
+      <h3>For the field</h3>
+      <ul style="font-size:0.78em">
+        <li>✅ scFMs encode <strong>genuine biological knowledge</strong>, not merely statistical patterns</li>
+        <li>✅ Classical benchmarks <strong>systematically underestimate</strong> scFM capabilities</li>
+        <li>✅ Zero-shot embeddings as <strong>plug-and-play</strong> feature extractors yield consistent downstream gains</li>
+        <li>✅ <strong>UCE</strong> and <strong>scCello</strong> are recommended as general-purpose encoders</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Relevance to scPRINT-2</h3>
+      <ul style="font-size:0.78em">
+        <li>Supports the rationale for learning representations that reflect the <strong>hierarchical structure</strong> of cell biology</li>
+        <li>Motivates the adoption of <strong>biology-aware evaluation metrics</strong> beyond scIB</li>
+        <li>The "smooth latent landscape" hypothesis provides a theoretical grounding for scPRINT's architectural choices</li>
+      </ul>
+    </div>
+  </div>
+  <br>
+  <p style="font-size:0.6em; color:#888;">📄 Genome Biology 26:334 &nbsp;·&nbsp; DOI: 10.1186/s13059-025-03781-6</p>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    transition: 'slide',
+    transitionSpeed: 'fast',
+    controls: true,
+    progress: true,
+    slideNumber: true,
+  });
+</script>
+</body>
+</html>
