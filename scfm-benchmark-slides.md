@@ -7,33 +7,34 @@ color: #1a1a2e
 style: |
   section {
     font-family: 'Segoe UI', Arial, sans-serif;
-    padding: 48px 58px;
+    padding: 42px 52px;
+    font-size: 29px;
+    line-height: 1.28;
   }
   h1 {
     color: #16213e;
-    font-size: 1.75em;
+    font-size: 1.55em;
     border-bottom: 3px solid #0f3460;
-    padding-bottom: 12px;
+    padding-bottom: 10px;
+    margin-bottom: 0.45em;
   }
   h2 {
     color: #0f3460;
-    font-size: 1.28em;
+    font-size: 1.18em;
+    margin-bottom: 0.25em;
+  }
+  p, li, blockquote, td, th {
+    overflow-wrap: anywhere;
+    word-break: normal;
   }
   strong { color: #e94560; }
   table {
-    font-size: 0.76em;
+    font-size: 0.72em;
     width: 100%;
   }
-  th { background: #0f3460; color: white; padding: 6px 10px; }
-  td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
-  ul { line-height: 1.7; }
-  section.compact {
-    font-size: 0.9em;
-    line-height: 1.25;
-    padding: 42px 52px;
-  }
-  section.compact table { font-size: 0.7em; }
-  section.compact ul { line-height: 1.45; }
+  th { background: #0f3460; color: white; padding: 5px 8px; }
+  td { padding: 4px 8px; border-bottom: 1px solid #ddd; }
+  ul { line-height: 1.5; margin-top: 0.2em; }
   .tag {
     background: #0f3460;
     color: white;
@@ -80,7 +81,6 @@ Ils mesurent la performance brute — pas si le modèle *comprend* la biologie c
 **→ Ce papier propose de changer les règles du jeu.**
 
 ---
-<!-- _class: compact -->
 
 # Nouvelles métriques bio-informées
 
@@ -100,7 +100,6 @@ Deux métriques originales basées sur l'**ontologie cellulaire** (Cell Ontology
 - 🎯 **Cancer cell ID + Drug sensitivity prediction** (clinique)
 
 ---
-<!-- _class: compact -->
 
 # Résultats : Les scFMs valent bien plus que prévu
 
@@ -120,7 +119,6 @@ Sur les métriques bio-informées → **scFMs dominent largement** :
 **Insight clé :** Un espace latent plus *lisse* (smooth landscape) = meilleures performances downstream → argument fort pour les architectures type scPRINT.
 
 ---
-<!-- _class: compact -->
 
 # Conclusion & Ce que ça change
 
